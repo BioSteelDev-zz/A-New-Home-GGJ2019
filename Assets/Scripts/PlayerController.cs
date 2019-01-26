@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float inputDelay = 0.1f;
     public float forwardVel = 12.0f;
     public float rotateVel = 100;
-
+    
     Quaternion targetRotation;
     Rigidbody rBody;
     float forwardInput, turnInput;
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Get any input every second via Update
     void GetInput()
     {
         forwardInput = Input.GetAxis("Vertical"); // Defined in Edit > Project Settings > Input - returns value between -1 and 1
