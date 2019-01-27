@@ -10,8 +10,8 @@ public class CloudHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckCloudPosition("front");
-        CheckCloudPosition("back");
+        CheckCloudPosition("frontCloud");
+        CheckCloudPosition("backCloud");
     }
 
     // Spawn a cloud
