@@ -49,6 +49,9 @@ public class GrabObject : MonoBehaviour
         //We set the object parent to our guide empty object.
         grabbedItem.transform.SetParent(guide);
 
+        // Turn off grabbed objects collision
+        grabbedItem.GetComponent<MeshCollider>().enabled = false;
+
         //Set gravity to false while holding it
         grabbedItem.GetComponent<Rigidbody>().useGravity = false;
 
@@ -71,6 +74,9 @@ public class GrabObject : MonoBehaviour
 
         //Set our Gravity to true again.
         grabbedItem.GetComponent<Rigidbody>().useGravity = true;
+
+        // Turn on grabbed objects collision
+        grabbedItem.GetComponent<MeshCollider>().enabled = true;
 
         // let the object do it's thing again
         grabbedItem.GetComponent<Rigidbody>().freezeRotation = false;
