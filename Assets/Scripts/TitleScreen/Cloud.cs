@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cloud : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Cloud : MonoBehaviour
     
     void Update()
     {
-        // Move the cloud across the screen    
+        // Move the cloud across the screen
+        transform.Translate(Time.deltaTime * speed, 0, 0);
     }
 }

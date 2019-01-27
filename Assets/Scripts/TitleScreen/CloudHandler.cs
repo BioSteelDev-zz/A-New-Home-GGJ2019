@@ -1,31 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CloudHandler : MonoBehaviour
 {
-    public GameObject cloud; // holds a cloud prefab
-    public List<Texture2D> cloudSprites; // holds textures to set for clouds
-    
+
+    public List<GameObject> clouds;
     // Update is called once per frame
     void Update()
     {
-        CheckCloudPosition("frontCloud");
-        CheckCloudPosition("backCloud");
+        CheckCloudPosition(clouds[0]);
+        CheckCloudPosition(clouds[1]);
     }
 
-    // Spawn a cloud
-    void SpawnCloud(string tag)
+    void CheckCloudPosition(GameObject cloud)
     {
-        // Use Texture2D list[0] for back cloud texture, list[1] for front
-        // Set front speed faster than back speed
-        // Set appropriate tag
-    }
-
-    void CheckCloudPosition(string tag)
-    {
-        // Check cloud based on tag
-        // If cloud is outside of canvas, delete old cloud
-        // If cloud is outside of canvas, spawn a new cloud
+        // If clouds have left the screen, "respawn" at the start
+        if(cloud.transform.position.x > 1600)
+        {
+            cloud.transform.position = new Vector3(-600, cloud.transform.position.y, cloud.transform.position.z);
+        }
     }
 }
