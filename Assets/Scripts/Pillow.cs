@@ -32,6 +32,12 @@ public class Pillow : MonoBehaviour
         if(Health == 0)
         {
             GameObject.Find("GameManager").GetComponent<GameHandler>().UpdatePlayerScore(100);
+            if(GameObject.Find("Main Camera").GetComponent<GrabObject>().grabbedItem != null)
+            {
+                GameObject.Find("Main Camera").GetComponent<GrabObject>().grabbedItem = null;
+                GameObject.Find("Main Camera").GetComponent<GrabObject>().canHold = true;
+                GameObject.Find("Main Camera").GetComponent<GrabObject>().guide.GetChild(0).parent = null;
+            }
             Destroy(gameObject);
         }
 
