@@ -61,6 +61,12 @@ public class GrabObject : MonoBehaviour
         // Don't let the object rotate
         grabbedItem.GetComponent<Rigidbody>().freezeRotation = true;
 
+        // set object to grabbed
+        if(grabbedItem.tag == "pillow")
+        {
+            grabbedItem.GetComponent<Pillow>().grabbed = true;
+        }
+
         //We re-position the ball on our guide object 
         grabbedItem.transform.position = guide.position;
 
@@ -83,8 +89,15 @@ public class GrabObject : MonoBehaviour
 
         // we don't have anything to do with our ball field anymore
         grabbedItem = null;
+
         //Apply velocity on throwing
         guide.GetChild(0).gameObject.GetComponent<Rigidbody>().velocity = transform.forward * speed; // TODO: change value of 2 to the value when whipping the camera around
+
+        // set object to grabbed
+        if (grabbedItem.tag == "pillow")
+        {
+            grabbedItem.GetComponent<Pillow>().grabbed = true;
+        }
 
         //Unparent our ball
         guide.GetChild(0).parent = null;

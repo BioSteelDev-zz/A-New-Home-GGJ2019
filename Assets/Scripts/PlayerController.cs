@@ -19,9 +19,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        // TODO: Move the following line to the Game Manager
-        Cursor.visible = false;
-
         targetRotation = transform.rotation; // Set target rotation to spawn rotation
         if (GetComponent<Rigidbody>())
         {
